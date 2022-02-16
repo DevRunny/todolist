@@ -4,6 +4,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+### `npm run api & npm start`
+[https://github.com/typicode/json-server](https://github.com/typicode/json-server)
+
+node-modules/json-server/lib/cli/index.js and change port: {default: 3001}
+
+Open [http://localhost:3001/todos](http://localhost:3001/todos) to view it in the browser.
+
 ### `npm start`
 
 Runs the app in the development mode.<br />
