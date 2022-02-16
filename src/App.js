@@ -1,55 +1,61 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.scss";
+import { NavBar } from "./components/NavBar";
+import { MainPage } from "./components/MainPage";
+import { MyTodoList } from "./components/MyTodoList";
+
+import reactLogo from "./images/react.svg";
+import reactRouterLogo from "./images/reactRouter.png";
+import reduxLogo from "./images/redux.svg";
+import axiosLogo from "./images/axios.svg";
+import sassLogo from "./images/sass.svg";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+      <NavBar />
+      <header>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<MainPage />} />
+            <Route path="mytodolist" element={<MyTodoList />} />
+            <Route
+              path="*"
+              element={
+                <main style={{ padding: "1rem" }}>
+                  <p style={{ color: "red" }}>
+                    Вы ошиблись страничкой, здесь ничего нет!
+                  </p>
+                </main>
+              }
+            />
+          </Routes>
+        </BrowserRouter>
+        <h4>Использованные технологии:</h4>
+        <div className="stack">
+          <h3>
+            <img src={reactLogo} className="logos" alt="react-logo" /> React
+          </h3>
+          <hr />
+          <h3>
+            <img src={reduxLogo} className="logos" alt="redux-logo" />
             Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
+          </h3>
+          <hr />
+          <h3>
+            <img
+              src={reactRouterLogo}
+              className="logos"
+              alt="react-router-logo"
+            />
+            React-router-dom
+          </h3>
+          <hr />
+          <img src={axiosLogo} className="logos" alt="axios-logo" />
+          <hr />
+          <img src={sassLogo} className="logos" alt="sass-logo" />
+        </div>
       </header>
     </div>
   );
